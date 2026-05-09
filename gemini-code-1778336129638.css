@@ -1,0 +1,71 @@
+/* Pengaturan Dasar & Efek Scroll Halus */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #0d1117;
+    color: #c9d1d9;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Membuat Setiap Bagian Memenuhi 1 Layar Penuh (Seperti Slide) */
+.fullscreen-section {
+    min-height: 100vh; /* Memaksa tinggi 1 layar penuh */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    border-bottom: 1px solid #21262d;
+}
+
+/* Teks & Kartu */
+.container { text-align: center; width: 100%; max-width: 800px; }
+h1 { color: #58a6ff; margin-top: 20px; font-size: 2.5rem; text-align: center;}
+.subtitle { text-align: center; font-size: 1.2rem; color: #8b949e; }
+.scroll-hint { margin-top: 40px; font-size: 0.9rem; opacity: 0.5; animation: blink 2s infinite; }
+
+@keyframes blink { 50% { opacity: 0; } }
+
+.card {
+    background: #161b22;
+    padding: 30px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 600px;
+    border: 1px solid #30363d;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.card h2 { color: #58a6ff; border-bottom: 2px solid #30363d; padding-bottom: 10px; }
+
+/* Animasi Orbit (Sama seperti sebelumnya) */
+.orbit-container { position: relative; width: 300px; height: 300px; display: flex; justify-content: center; align-items: center; margin-bottom: 20px;}
+.profile-circle { width: 150px; height: 150px; border-radius: 50%; border: 5px solid #58a6ff; overflow: hidden; z-index: 10; background: #161b22; }
+.avatar { width: 100%; height: 100%; object-fit: cover; }
+.orbit { position: absolute; width: 100%; height: 100%; animation: rotateOrbit 12s linear infinite; }
+
+@keyframes rotateOrbit { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+
+.orbit-icon {
+    position: absolute; width: 50px; height: 50px; background: #21262d; border: 2px solid #58a6ff; color: #58a6ff;
+    border-radius: 50%; display: flex; justify-content: center; align-items: center; text-decoration: none; font-size: 20px;
+    top: 50%; left: 50%; margin: -25px;
+    transform: rotate(calc(var(--i) * 90deg)) translate(130px) rotate(calc(var(--i) * -90deg));
+    transition: 0.3s;
+}
+.orbit-icon i { animation: counterRotate 12s linear infinite; }
+@keyframes counterRotate { 0% { transform: rotate(0deg); } 100% { transform: rotate(-360deg); } }
+.orbit-icon:hover { background: #58a6ff; color: #fff; box-shadow: 0 0 20px #58a6ff; transform: rotate(calc(var(--i) * 90deg)) translate(130px) rotate(calc(var(--i) * -90deg)) scale(1.2); }
+
+/* Tombol */
+.btn { display: inline-block; padding: 12px 25px; margin: 10px 5px; border-radius: 25px; text-decoration: none; color: white; font-weight: bold; transition: 0.3s; }
+.btn:hover { transform: translateY(-3px); box-shadow: 0 5px 15px rgba(0,0,0,0.3); }
+.tiktok { background: #ff0050; }
+.instagram { background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%); }
+.doc-btn { background: #238636; border: 1px solid #2ea043; }
+.skills-list li { margin-bottom: 10px; }
